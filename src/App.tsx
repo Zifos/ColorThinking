@@ -1,40 +1,29 @@
+/** @jsx jsx */
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider, jsx, Container, Card, Button, Heading } from "theme-ui";
+import deepTheme from "./theme";
 
-interface AppProps {}
-
-function App({}: AppProps) {
-  // Create the count state.
+function App() {
   const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <ThemeProvider theme={deepTheme}>
+      <Container
+        p={4}
+        bg='muted'
+        sx={{
+          height: "100vh",
+        }}>
+        <Card sx={{ background: "rgba(255, 255, 255, 0.3)", borderRadius: "1rem", p: 3 }}>
+          <Heading sx={{ marginBottom: 4 }}>Simple counter</Heading>
+          <Button variant="primary" onClick={() => setCount(count + 1)}>
+            +1
+          </Button>
+          <p>
+            <code>{count}</code>
+          </p>
+        </Card>
+      </Container>
+    </ThemeProvider>
   );
 }
 

@@ -7,8 +7,10 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@theme-ui/preset-deep": "^0.3.4",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "theme-ui": "^0.3.4"
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.0.5",
